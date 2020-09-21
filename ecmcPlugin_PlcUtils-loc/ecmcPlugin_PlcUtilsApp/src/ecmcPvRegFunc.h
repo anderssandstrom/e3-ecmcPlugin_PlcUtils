@@ -38,7 +38,7 @@ public:
   using exprtk::igeneric_function<T>::operator();
 
   pvreg()
-  : exprtk::igeneric_function<T>("SS")
+  : exprtk::igeneric_function<T>("TTS")
   { 
     printf("pvreg constructs 1\n"); 
   }

@@ -25,7 +25,7 @@ extern "C" {
 #include "ecmcPluginDefs.h"
 #include "ecmcPlcUtilsWrap.h"
 #include "ecmcPluginClient.h"
-#include "ecmcPvDefs.h"
+
 
 // only allow to load once
 #define ECMC_PLUGIN_ALLOW_MULTI_LOAD 0
@@ -55,19 +55,14 @@ int plcUtilsConstruct(char *configStr)
   // create plcUtils object and register data callback
   lastConfStr = strdup(configStr);
   parseConfigStr(lastConfStr);
-
-  // Add refs to generic funcs in runtime since objects
-  pluginDataDef.funcs[0].funcGenericObj = getPvRegObj();  
-  loaded = 1;
-  return initPvs();
+  return 0;
 }
 
 /** Optional function.
  *  Will be called once at unload.
  **/
 void plcUtilsDestruct(void)
-{
-  cleanup();
+{  
   if(lastConfStr){
     free(lastConfStr);
   }

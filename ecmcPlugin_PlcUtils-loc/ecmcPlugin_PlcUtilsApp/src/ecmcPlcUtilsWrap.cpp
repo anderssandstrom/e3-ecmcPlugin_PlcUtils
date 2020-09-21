@@ -16,9 +16,9 @@
 
 
 #include "ecmcPlcUtilsWrap.h"
-#include "ecmcPvRegFunc.h"
-
 
 int parseConfigStr(char *configStr) {
+  return 0;
 }
+
 
